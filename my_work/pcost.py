@@ -9,7 +9,7 @@ with open(dat_path, "r") as f:
     total_sum: float = 0.0
     for line in data:
         match line.split():
-            case symbol, quantity, price:
+            case [symbol, quantity, price]:
                 total_sum += int(quantity) * float(price)
 
 print(total_sum)
