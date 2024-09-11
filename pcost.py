@@ -18,4 +18,5 @@ def portfolio_cost(filename: Path):
     return total_sum
 
 
-print(portfolio_cost(Path("Data/portfolio3.dat")))
+if __name__ == "__main__":
+    print(portfolio_cost(Path("Data/portfolio.dat")))
