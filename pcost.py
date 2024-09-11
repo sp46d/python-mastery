@@ -10,8 +10,8 @@ def portfolio_cost(filename: Path):
                     case [_, quantity, price]:
                         total_sum += int(quantity) * float(price)
             except ValueError as e:
-                print("Couldn't parse:", line)
-                print("Reason:", e)
+                print(f"Couldn't parse: '{line[:-1]}'")
+                print("Reason:", e, end="\n\n")
             finally:
                 continue
 
@@ -19,4 +19,4 @@ def portfolio_cost(filename: Path):
 
 
 if __name__ == "__main__":
-    print(portfolio_cost(Path("Data/portfolio.dat")))
+    print(portfolio_cost(Path("Data/portfolio3.dat")))
