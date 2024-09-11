@@ -1,4 +1,3 @@
-import os
 from pathlib import Path
 
 
@@ -19,7 +18,4 @@ def portfolio_cost(filename: Path):
     return total_sum
 
 
-dirname = os.path.dirname(os.path.dirname(__file__))
-dat_path = Path(os.path.join(dirname, "Data", "portfolio3.dat"))
-
-print(portfolio_cost(dat_path))
+print(portfolio_cost(Path("Data/portfolio3.dat")))
