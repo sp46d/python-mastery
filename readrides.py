@@ -1,3 +1,4 @@
+from dataclasses import dataclass
 import csv
 
 
@@ -39,12 +40,12 @@ def read_rides_as_class(filename):
     Read the bus ride data as a list of user-defined class
     """
 
+    @dataclass
     class Row:
-        def __init__(self, route, date, daytype, rides):
-            self.route = route
-            self.date = date
-            self.daytype = daytype
-            self.rides = rides
+        route: str
+        date: str
+        daytype: str
+        rides: int
 
     records = []
     with open(filename) as f:
@@ -111,6 +112,6 @@ if __name__ == "__main__":
     # rows = read_rides_as_tuples("Data/ctabus.csv")
     # rows = read_rides_as_dict("Data/ctabus.csv")
     # rows = read_rides_as_class("Data/ctabus.csv")
-    # rows = read_rides_as_nt("Data/ctabus.csv")
-    rows = read_rides_as_slot("Data/ctabus.csv")
+    rows = read_rides_as_nt("Data/ctabus.csv")
+    # rows = read_rides_as_slot("Data/ctabus.csv")
     print("Memory Use: Current %d, Peak %d" % tracemalloc.get_traced_memory())
